@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service'; 
+import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { Customer } from '../customer';
 
@@ -17,17 +17,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {    
-    var retval = this.loginService.validateLogin(this.customer)
-   // .subscribe(data => console.log(data), error => console.log(error));    
-    console.log(retval);
-    if(retval == true ) {
-      this.router.navigate(['home']);
+  onSubmit(): void {
+    const retCustomer = this.loginService.validateLogin(this.customer);
+   // .subscribe(data => console.log(data), error => console.log(error));
+    console.log(name + ' ' + retCustomer.name);
+    if (retCustomer != null ) {
+      this.router.navigate(['home', retCustomer.customerId]);
     } else {
       // Error message invalid user.
-      console.log( "Invalid user" );
+      console.log( ' Invalid user ' );
     }
-    return retval;
+    return;
   }
 
 }

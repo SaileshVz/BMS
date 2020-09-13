@@ -1,6 +1,6 @@
 export class Customer {
     customerId: number;
-    name: string; 
+    name: string;
     username: string;
     password: string;
     guardianType: string;
@@ -15,6 +15,7 @@ export class Customer {
     contactNumber: string;
     dateOfBirth: Date;
     dateOfRegistration: Date;
+    accountNumber: string;
     accountType: string;
     bankName: string;
     branchName: string;
@@ -24,6 +25,5 @@ export class Customer {
     idDocumentNumber: number;
     refAccHolderName: string;
     refAccHolderAccNo: string;
-    refAccHolderAddress: string;   
-      
+    refAccHolderAddress: string;
 }

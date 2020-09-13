@@ -1,1 +1,39 @@
 <p>update-customer works!</p>
+
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Customer Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Account Number</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.accountNumber" name="accountNumber">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Country</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.country" name="country">
+        </div>
+
+        <div class="form-group">
+            <label for="name">State</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.state" name="state">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Gender</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.gender" name="gender">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Date Of Birth</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="customer.dateOfBirth" name="dateOfBirth">
+        </div>
+
+        
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
