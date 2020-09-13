@@ -13,6 +13,8 @@ import { EloanComponent } from './eloan/eloan.component';
 import { PhloanComponent } from './phloan/phloan.component';
 import { HomeComponent } from './home/home.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { RegisterCustomerComponent } from './register-customer/register-customer.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { UpdateCustomerComponent } from './update-customer/update-customer.compo
     EloanComponent,
     PhloanComponent,
     HomeComponent,
-    UpdateCustomerComponent
+    UpdateCustomerComponent,
+    ViewCustomerComponent,
+    RegisterCustomerComponent
   ],
   imports: [
     BrowserModule,

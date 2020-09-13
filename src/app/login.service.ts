@@ -18,7 +18,7 @@ export class LoginService {
       customerId: 1,
       name: 'AC',
       username: 'Aritra',
-      password: 'Chaterjee',
+      password: 'Chatterjee',
       guardianType: null,
       guardianName: null,
       address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
@@ -123,5 +123,9 @@ export class LoginService {
       }
     }
     return null;
+  }
+
+  getCustomerCount(): number {
+    return this.customers.length;
   }
 }

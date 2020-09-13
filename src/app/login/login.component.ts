@@ -30,4 +30,8 @@ export class LoginComponent implements OnInit {
     return;
   }
 
+  onRegisterCustomer(): void {
+    this.router.navigate(['register']);
+  }
+
 }

@@ -28,4 +28,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/update', this.id]);
   }
 
+  onLogout(): void {
+    this.router.navigate(['']);
+  }
+
+  onViewCustomer(): void {
+    console.log('Inside onViewCustomer Function of Home Comp.' + this.id);
+    this.router.navigate(['/view', this.id]);
+  }
+
 }
