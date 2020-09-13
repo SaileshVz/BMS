@@ -15,32 +15,98 @@ export class LoginService {
 
   customers: Customer[] = [
     {
-      'id': 1,
+      'customerId': 1,
+      'name': 'AC',
       'username': 'Aritra',
-      'password': 'Chaterjee'
+      'password': 'Chaterjee',
+      'guardianType': null,
+      'guardianName': null,
+      'address': 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      'citizenship': 'Indian',
+      'state': 'West Bangal',
+      'country': 'India',
+      'email': "ac@abc.com",
+      'gender': 'Male',
+      'maritalStatus': 'Single',
+      'contactNumber': '1111',
+      'dateOfBirth': null,
+      'dateOfRegistration': null,
+      'accountType': null,
+      'bankName' : 'SBI',
+      'branchName': 'Rajpath Branch',      
+      'citizenStatus': 'Resident',
+      'initialDepositAmount': 500.25,
+      'idProoType': 'Aadhar Card',
+      'idDocumentNumber': 1111,
+      'refAccHolderName': null,
+      'refAccHolderAccNo': null,
+      'refAccHolderAddress': null
     },    
     {
-      'id': 2,
+      'customerId': 2,
+      'name': 'SC',
       'username': 'Sanando',
-      'password': 'Chakraborty'
+      'password': 'Chakraborty',
+      'guardianType': null,
+      'guardianName': null,
+      'address': 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      'citizenship': 'Indian',
+      'state': 'West Bangal',
+      'country': 'India',
+      'email': "ac@abc.com",
+      'gender': 'Male',
+      'maritalStatus': 'Single',
+      'contactNumber': '1111',
+      'dateOfBirth': null,
+      'dateOfRegistration': null,
+      'accountType': null,
+      'bankName' : 'SBI',
+      'branchName': 'Rajpath Branch',
+      'citizenStatus': 'Resident',
+      'initialDepositAmount': 500.25,
+      'idProoType': 'Aadhar Card',
+      'idDocumentNumber': 1111,
+      'refAccHolderName': null,
+      'refAccHolderAccNo': null,
+      'refAccHolderAddress': null
     },
     {
-      'id': 3,
+      'customerId': 3,
+      'name': 'SG',
       'username': 'sailesh',
-      'password': 'gor'
-    },
-
+      'password': 'gor',     
+      'guardianType': null,
+      'guardianName': null,
+      'address': 'PlotNo-1, First Main Road, Salt Lake Calcutta',
+      'citizenship': 'Indian',
+      'state': 'West Bangal',
+      'country': 'India',
+      'email': "ac@abc.com",
+      'gender': 'Male',
+      'maritalStatus': 'Single',
+      'contactNumber': '1111',
+      'dateOfBirth': null,
+      'dateOfRegistration': null,
+      'accountType': null,
+      'bankName' : 'SBI',
+      'branchName': 'Rajpath Branch',
+      'citizenStatus': 'Resident',
+      'initialDepositAmount': 500.25,
+      'idProoType': 'Aadhar Card',
+      'idDocumentNumber': 1111,
+      'refAccHolderName': null,
+      'refAccHolderAccNo': null,
+      'refAccHolderAddress': null
+    }
   ]
 
-
-
-  validateLogin (customer: Customer) : any { 
+  validateLogin (customer: Customer) : Customer { 
     // in real time there will be separate service call to the given service URL    
     console.log("we are in validateLogin unction");
-    var retVal = false;
+    var retVal = null;
     for (let c of this.customers) {
-      if (c.username == customer.username && c.password == customer.password) return true;    
+      if (c.username == customer.username && c.password == customer.password) return c;    
     }
     return retVal;
-  }
+  }  
 }

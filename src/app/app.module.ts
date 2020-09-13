@@ -11,6 +11,8 @@ import { from } from 'rxjs';
 import { ApplyLoanComponent } from './apply-loan/apply-loan.component';
 import { EloanComponent } from './eloan/eloan.component';
 import { PhloanComponent } from './phloan/phloan.component';
+import { HomeComponent } from './home/home.component';
+import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { PhloanComponent } from './phloan/phloan.component';
     LoginComponent,
     ApplyLoanComponent,
     EloanComponent,
-    PhloanComponent
+    PhloanComponent,
+    HomeComponent,
+    UpdateCustomerComponent
   ],
   imports: [
     BrowserModule,
