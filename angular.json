@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bms"
+    }
+  },
+  "defaultProject": "bms",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -10,7 +10,7 @@ import { LoginService } from '../login.service';
 })
 export class HomeComponent implements OnInit {
 
-  id: number;
+  id: string;
   customer: Customer = new Customer();
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) { }

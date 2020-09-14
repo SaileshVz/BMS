@@ -1,5 +1,5 @@
 export class Customer {
-    customerId: number;
+    customerId: string;
     name: string;
     username: string;
     password: string;
@@ -15,7 +15,7 @@ export class Customer {
     contactNumber: string;
     dateOfBirth: Date;
     dateOfRegistration: Date;
-    accountNumber: string;
+    accountNumber: number;
     accountType: string;
     bankName: string;
     branchName: string;

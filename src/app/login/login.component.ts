@@ -10,7 +10,7 @@ import { Customer } from '../customer';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router ) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   customer: Customer = new Customer();
 
@@ -19,13 +19,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const retCustomer = this.loginService.validateLogin(this.customer);
-   // .subscribe(data => console.log(data), error => console.log(error));
-    console.log(name + ' ' + retCustomer.name);
-    if (retCustomer != null ) {
+    // .subscribe(data => console.log(data), error => console.log(error));
+
+    if (retCustomer != null) {
+      console.log(name + ' ' + retCustomer.name);
+      console.log('customer id:' + '' + retCustomer.customerId);
       this.router.navigate(['home', retCustomer.customerId]);
     } else {
       // Error message invalid user.
-      console.log( ' Invalid user ' );
+      console.log(' Invalid user ');
     }
     return;
   }

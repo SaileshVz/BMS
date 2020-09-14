@@ -15,7 +15,7 @@ export class LoginService {
 
   customers: Customer[] = [
     {
-      customerId: 1,
+      customerId: 'R-100',
       name: 'AC',
       username: 'Aritra',
       password: 'Chatterjee',
@@ -31,7 +31,7 @@ export class LoginService {
       contactNumber: '1111',
       dateOfBirth: null,
       dateOfRegistration: null,
-      accountNumber: '1111',
+      accountNumber: 1234567899876543,
       accountType: null,
       bankName : 'SBI',
       branchName: 'Rajpath Branch',
@@ -44,7 +44,7 @@ export class LoginService {
       refAccHolderAddress: null
     },
     {
-      customerId: 2,
+      customerId: 'R-200',
       name: 'SC',
       username: 'Sanando',
       password: 'Chakraborty',
@@ -60,7 +60,7 @@ export class LoginService {
       contactNumber: '1111',
       dateOfBirth: null,
       dateOfRegistration: null,
-      accountNumber: '2222',
+      accountNumber: 1234567899876543,
       accountType: null,
       bankName : 'SBI',
       branchName: 'Rajpath Branch',
@@ -73,7 +73,7 @@ export class LoginService {
       refAccHolderAddress: null
     },
     {
-      customerId: 3,
+      customerId: 'R-300',
       name: 'SG',
       username: 'sailesh',
       password: 'gor',
@@ -89,7 +89,7 @@ export class LoginService {
       contactNumber: '1111',
       dateOfBirth: null,
       dateOfRegistration: null,
-      accountNumber: '3333',
+      accountNumber: 1234567899876543,
       accountType: null,
       bankName : 'SBI',
       branchName: 'Rajpath Branch',
@@ -112,7 +112,7 @@ export class LoginService {
     return null;
   }
 
-  getCustomerById(id: number): Customer {
+  getCustomerById(id: string): Customer {
     console.log('Inside getCustomerById: ' + id);
     console.log('Customer: ' + this.customers[0].customerId);
     // tslint:disable-next-line:prefer-const
