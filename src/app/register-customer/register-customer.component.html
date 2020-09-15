@@ -1,8 +1,8 @@
 
-<div>
-<form (ngSubmit)="onSubmit()">
 <div class="container">
-            <div class="col-lg-12">
+    <div class="col-lg-12">
+
+<form (ngSubmit)="onSubmit()">
         <div class="form-group" class="align_left">
             <label for="name">Username</label>
             <input type="text" class="form-control" id="username" required [(ngModel)]="customer.username"
@@ -78,11 +78,11 @@
         <input name="dob" type="date" [max]="minDate" class="form-control" [(ngModel)]="customer.dateOfBirth"/>
         <p></p>
         </div>
-    </div>
-</div>
+    
     <div class="action">
-        <button type="submit" >Submit</button>
-        <button type="button" (click)="onCancel()">Cancel</button>
+        <button type="submit" class = 'btn-info'>Submit</button>
+        <button type="button" (click)="onCancel()" class='btn-info'>Cancel</button>
     </div>
     </form>
+</div>
 </div>

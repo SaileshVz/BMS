@@ -1,0 +1,21 @@
+.ftrs {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  /* On screens that are 992px wide or less, the background color is blue */
+  @media screen and (max-width: 992px) {
+    .ftrs {
+      background-color: blue;
+      color: white;
+    }
+  }
+  
+  /* On screens that are 600px wide or less, the background color is olive */
+  @media screen and (max-width: 600px) {
+    .ftrs {
+      background-color: olive;
+      color: white;
+    }
+  }
+  

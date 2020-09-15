@@ -1,48 +1,20 @@
-<html>
-<head>
-<style>
-body {
-  background-color: lightblue;
-  color: black;
-}
 
-/* On screens that are 992px wide or less, the background color is blue */
-@media screen and (max-width: 992px) {
-  body {
-    background-color: blue;
-    color: white;
-  }
-}
-
-/* On screens that are 600px wide or less, the background color is olive */
-@media screen and (max-width: 600px) {
-  body {
-    background-color: olive;
-    color: white;
-  }
-}
-</style>
-</head>
-<body>
-    <div>
-        <div>
-            <button (click) = 'onApplyLoan()'>Apply Loan</button>        
-        </div>
-    
-        <div>
-            <button (click) = 'onUpdateCustomer()'>Update Customer</button>        
-        </div>
-        <div>
-            <button (click) = 'onViewCustomer()'>View Customer</button>        
-        </div>
-        <div>
-            <button (click) = 'onLogout()'>Logout</button>        
-        </div>
-    
-    </div>
-
-</body>
-</html>
+<div class = "container">
+  <div class="row">
+  <div>
+    <button (click) = 'onApplyLoan()' class="btn-info">Apply Loan</button>     
+  </div>  
+  <div>
+    <button (click) = 'onUpdateCustomer()' class="btn-info" >Update Customer</button>&nbsp;       
+  </div>
+  <div>
+    <button (click) = 'onViewCustomer()' class="btn-info">View Customer</button>&nbsp;       
+  </div>
+  <div>
+    <button (click) = 'onLogout()' class="btn-info">Logout</button>        
+  </div> 
+  </div>   
+</div>
 
 
 

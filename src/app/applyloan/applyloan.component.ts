@@ -13,7 +13,7 @@ import { validateVerticalPosition } from '@angular/cdk/overlay';
   styleUrls: ['./applyloan.component.css']
 })
 export class ApplyloanComponent implements OnInit {
-  //minDate: Date;
+  // minDate: Date;
   response: any;
   roi: any;
   initialDeposit: number;
@@ -63,6 +63,10 @@ export class ApplyloanComponent implements OnInit {
     this.roi = this.response.find(e => e.type == loanType).rate;
     //console.log(this.roi);
 
+  }
+
+  onCancel(): void {
+    this.router.navigate(['/home', this.id]);
   }
 
   form = new FormGroup({
