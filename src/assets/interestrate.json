@@ -1,0 +1,14 @@
+[
+    {
+        "type": "personal",
+        "rate": 20
+    },
+    {
+        "type": "housing",
+        "rate": 15
+    },
+    {
+        "type": "educational",
+        "rate": 10
+    }
+]

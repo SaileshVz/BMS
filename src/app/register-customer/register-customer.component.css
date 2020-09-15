@@ -1,0 +1,17 @@
+.error{
+    font-style: italic;
+}
+.align_left{
+    float: left;
+    width:500px;
+}
+
+.align_right{
+    float: right;
+    width:500px;
+}
+.action{
+    top:500px;
+    float: left;
+    margin-left: 140px;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-lightblue text-right">
+            <button type="button"  (click) = "onReturning()">Return</button>
+        </div>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                  <th scope="col"> Sequence</th>
+                  <th scope="col"> Account Parameters</th>
+                  <th scope="col"> Values</th>
+                </tr>
+              </thead>
+            <tr>
+                <td>1</td>
+                <td>customerId:</td>
+                <td>{{customer.customerId}}</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Name: </td>
+                <td>{{customer.name}}</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>AccountNumber</td>
+                <td>{{customer.accountNumber}}</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Gender</td>
+                <td>{{ customer.gender }}</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>DOB</td>
+                <td>{{ customer.dateOfBirth }}</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Address</td>
+                <td>{{ customer.address }}</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Contact No:</td>
+                <td>{{ customer.contactNumber }}</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Mail Id</td>
+                <td>{{ customer.email }}</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Merital Status</td>
+                <td>{{ customer.maritalStatus }}</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Account Type</td>
+                <td>{{customer.accountType}}</td>
+            </tr>
+        </table>
+    </div>  
+</div>
