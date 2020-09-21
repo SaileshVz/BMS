@@ -7,7 +7,7 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { UpdateCustomerComponent } from './update-customer/update-customer.component';
 import { RegisterCustomerComponent } from './register-customer/register-customer.component';
 
-//const routes: Routes = [];
+// const routes: Routes = [];
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -16,8 +16,6 @@ const routes: Routes = [
   { path: 'view/:id', component: ViewCustomerComponent },
   { path: 'update/:id', component: UpdateCustomerComponent },
   { path: 'register', component: RegisterCustomerComponent }
-  
-  
 ];
 
 @NgModule({

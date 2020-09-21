@@ -20,37 +20,37 @@ export class ApplyloanComponent implements OnInit {
   accountHolderName: string;
   id: string;
   customer: Customer;
-  issueDate:any;
-  minDate:string;
-  
+  issueDate: any;
+  minDate: string;
 
-  constructor(private loanService: ApplyLoanService, private loginService: LoginService,private route: ActivatedRoute, private router: Router) {
+  constructor(private loanService: ApplyLoanService,
+              private loginService: LoginService,
+              private route: ActivatedRoute,
+              private router: Router) {
 
-    var now = new Date();
-    this.minDate= now.toISOString().substring(0,10);
-    //document.getElementById("form.issueDate").setAttribute("minDate", now.toISOString().substring(0,10));
-    //console.log(minDate)
-
+    const now = new Date();
+    this.minDate = now.toISOString().substring(0,10);
+    // document.getElementById("form.issueDate").setAttribute("minDate", now.toISOString().substring(0,10));
+    // console.log(minDate)
   }
 
   ngOnInit(): void {
 
-
-     
+    // tslint:disable-next-line:no-string-literal
     this.id = this.route.snapshot.params['id'];
-    console.log('Id value:'+this.id);
+    console.log('Id value:' + this.id);
     this.customer = this.loginService.getCustomerById(this.id);
 
     // this.accountHolderName = this.loginService.getAccountHolderName();
     // this.initialDeposit = this.loginService.getInitialDeposit();
-    this.accountHolderName=this.customer.name;
-    this.initialDeposit=this.customer.initialDepositAmount;
+    this.accountHolderName = this.customer.name;
+    this.initialDeposit = this.customer.initialDepositAmount;
     console.log(this.initialDeposit);
     console.log(this.accountHolderName);
 
   }
 
-  display() {
+  display(): void {
     console.log(this.response);
 
   }

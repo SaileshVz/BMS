@@ -53,14 +53,14 @@ export class LoginService {
       username: 'sailesh',
       password: 'gor',
       address: 'PlotNo-1, First Main Road, Salt Lake Calcutta',
-      email: 'ac@abc.com',
+      email: 'xyz@gmail.com',
       gender: 'Male',
-      maritalStatus: 'Single',
+      maritalStatus: 'married',
       contactNumber: '1111',
-      dateOfBirth: null,
-      accountNumber: 1234567899876543,
-      accountType: null,
-      initialDepositAmount: 500.25
+      dateOfBirth: new Date(Date.now()),
+      accountNumber: 1111222233334444,
+      accountType: 'salary',
+      initialDepositAmount: 50000.25
     }
   ];
 

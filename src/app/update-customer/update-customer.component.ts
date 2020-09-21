@@ -25,12 +25,12 @@ export class UpdateCustomerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
     var now = new Date();
-    this.minDate= now.toISOString().substring(0,10);
+    this.minDate = now.toISOString().substring(0, 10);
    }
 
   ngOnInit(): void {
-    //this.customer.customerId = this.dataService.getCustomerCount() + 1;
-    //this.customer.accountNumber = 1234567899876543;
+    // this.customer.customerId = this.dataService.getCustomerCount() + 1;
+    // this.customer.accountNumber = 1234567899876543;
     // tslint:disable-next-line:no-string-literal
     this.cId = this.route.snapshot.params['id'];
     console.log(this.cId);
@@ -38,29 +38,28 @@ export class UpdateCustomerComponent implements OnInit {
     console.log('Inside ngOnInit of home ts customerId: ' + this.customer);
   }
 
- 
   updateCustomer(): void {
     this.dataService.customers.push(this.customer);
-    this.showalert(" successfully updated");
+    this.showalert('successfully updated');
     this.customer = new Customer();
     this.router.navigate(['/home', this.cId]);
   }
 
   onSubmit(): void {
-    if(!this.isEmailError && !this.iscontactError && !this.ispasswordError ){
-    this.updateCustomer();
-    }
+   this.updateCustomer();
   }
 
   onCancel(): void {
     this.router.navigate(['/home', this.cId]);
-  } 
+  }
 
   showalert(message: string) {
     alert(this.customer.name + message);
   }
 
   onChangename(event) {
+    console.log('Inside onChangename.....');
+    console.log(event);
     if (checkAlphabet(event))
       event.preventDefault();
   }
