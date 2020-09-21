@@ -4,14 +4,16 @@
 .align_left{
     float: left;
     width:500px;
+    height: 100px;
 }
 
 .align_right{
     float: right;
     width:500px;
+    height: 100px;
 }
 .action{
     top:500px;
     float: left;
-    margin-left: 140px;
+    margin-left: 460px;
 }

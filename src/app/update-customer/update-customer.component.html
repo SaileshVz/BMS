@@ -1,87 +1,86 @@
-
 <div class="container">
     <div class="col-lg-12">
-<form (ngSubmit)="onSubmit()">
-<div class="form-group" class="align_left">
-    <label for="name">Username</label>
-    <input type="text" class="form-control" id="username" required [(ngModel)]="customer.username"
-        name="username">
-        <p></p>
-</div>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group" class="align_left">
+                <label for="username">Username</label><span class="error">* </span>
+                <input type="text" class="form-control" id="username" required [(ngModel)]="customer.username"
+                    name="username" (focusout)="checkUsername($event)">
+                <small class="error">{{usernameErrorMsg}}</small>
+            </div>
 
-<div class="form-group" class="align_right">
-    <label for="name">Password</label>
-    <input type="password" class="form-control" id="password" required [(ngModel)]="customer.password"
-        name="password" (focusout)="onChangepassword($event)">
-    <p class="error">{{errorMsgPassword}}</p>
-</div>
+            <div class="form-group" class="align_right">
+                <label for="password">Password</label><span class="error">* </span>
+                <input type="password" class="form-control" id="password" required [(ngModel)]="customer.password"
+                    name="password" (focusout)="onChangepassword($event)">
+                <small class="error">{{errorMsgPassword}}</small>
+            </div>
 
-<div class="form-group" class="align_left">
-    <label for="name">Customer Name</label>
-    <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name"
-        (keypress)='onChangename($event)'>
-        <p></p>
-</div>
+            <div class="form-group" class="align_left">
+                <label for="name">Customer Name</label><span class="error">* </span>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name"
+                    (keypress)='onChangename($event)' >                
+            </div>
 
-<div class="form-group" class="align_right">
-    <label for="address">Address:</label>
-    <input type="text" class="form-control" id="address" required [(ngModel)]="customer.address" name="address">
-<p></p>
-</div>
+            <div class="form-group" class="align_right">
+                <label for="address">Address</label><span class="error">* </span>
+                <input type="text" class="form-control" id="address" required [(ngModel)]="customer.address"
+                    name="address">
+                <p></p>
+            </div>
 
-<div class="form-group" class="align_left">
-    <label for="email">Please mention email:</label>
-    <input type="email" id="email" class="form-control" name="email" [(ngModel)]="customer.email"
-        (focusout)="checkEmail($event)">
-    <p class="error">{{errorMsgEmail}}</p>
-</div>
+            <div class="form-group" class="align_left">
+                <label for="email">Please mention email</label><span class="error">* </span>
+                <input type="email" id="email" class="form-control" name="email" [(ngModel)]="customer.email"
+                    (focusout)="checkEmail($event)">
+                <p class="error">{{errorMsgEmail}}</p>
+            </div>
 
-<div class="form-group" class="align_right">
-    <label for="gender">Please mention gender:</label>
-    <select name="gender" class="form-control" id="gender" [(ngModel)]="customer.gender">
-        <option value="male">male</option>
-        <option value="female">female</option>
-        <option value="other">other</option>
-    </select>
-    <p></p>
-</div>
+            <div class="form-group" class="align_right">
+                <label for="gender">Please mention gender:</label>
+                <select name="gender" class="form-control" id="gender" [(ngModel)]="customer.gender">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="other">other</option>
+                </select>
+                <p></p>
+            </div>
 
+            <div class="form-group" class="align_left">
+                <label for="marital"> martial status:</label>
+                <select name="marital" class="form-control" id="marital" [(ngModel)]="customer.maritalStatus">
+                    <option value="married">married</option>
+                    <option value="unmarried">unmarried</option>
+                </select>
+                <p></p>
+            </div>
 
-<div class="form-group" class="align_left">
-    <label for="marital"> martial status:</label>
-    <select name="marital" class="form-control" id="marital" [(ngModel)]="customer.maritalStatus">
-        <option value="married">married</option>
-        <option value="unmarried">unmarried</option>
-    </select>
-    <p></p>
-</div>
+            <div class="form-group" class="align_right">
+                <label for="contact">Please mention contact no:</label><span class="error">* </span>
+                <input type="number" class="form-control" id="contact" name="contact" maxlength="10"
+                    [(ngModel)]="customer.contactNumber" (focusout)="checkLength($event)">
+                <p class="error">{{contactErrorMsg}}</p>
+            </div>
 
-<div class="form-group" class="align_right">
-    <label for="contact">Please mention contact no:</label>
-    <input type="number" class="form-control" id="contact" name="contact" maxlength="10"
-        [(ngModel)]="customer.contactNumber" (focusout)="checkLength($event)">
-    <p class="error">{{contactErrorMsg}}</p>
-</div>
+            <div class="form-group" class="align_left">
+                <label for="account_type">Account type</label><span class="error">* </span>
+                <select name="account_type" class="form-control" id="account_type" [(ngModel)]="customer.accountType">
+                    <option value="salary">salary</option>
+                    <option value="savings">savings</option>
+                </select>
+            </div>
 
-<div class="form-group" class="align_left">
-    <label for="account_type">Account type:</label>
-    <select name="account_type" class="form-control" id="account_type" [(ngModel)]="customer.accountType">
-        <option value="salary">salary</option>
-        <option value="savings">savings</option>
-    </select>
-</div>
+            <div class="form-group" class="align_right">
+                <label for="dateOfBirth">Date of birth</label><span class="error">* </span>
+                <input id="dateOfBirth" type="date" placeholder="dd-mm-yyyy" required  [max]="minDate" class="form-control" 
+                  name="dateOfBirth" [(ngModel)]="customer.dateOfBirth" (focusout)="checkDob($event)">   
+                <small class="error">{{dobErrorMsg}}</small>                                    
+            </div>
+            <br><br>
+            <div class='action'>
+                <button type="submit" class='btn-info'>Submit</button> &nbsp; &nbsp;
+                <button type="button" (click)="onCancel()" class="btn-info">Cancel</button>
+            </div>
 
-<div class="form-group" class="align_right">
-    <label for="dateOfBirth">Date of birth:</label>
-    <input name="dateOfBirth" id ="dateOfBirth" type="date" [max]="minDate" class="form-control" 
-     [(ngModel)]="customer.dateOfBirth"  required />     
-</div>
-<br>
-<div class='action'>
-    <button type="submit" class = 'btn-info'>Submit</button>
-    <button type="button" (click)="onCancel()" class = "btn-info">Cancel</button>
-</div>
-
-</form>
-</div>
+        </form>
+    </div>
 </div>

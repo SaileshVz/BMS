@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { checkAlphabet, checkPassword } from '../register-customer/utility';
 
+
 @Component({
   selector: 'app-update-customer',
   templateUrl: './update-customer.component.html',
@@ -14,17 +15,22 @@ export class UpdateCustomerComponent implements OnInit {
   customer: Customer = new Customer();
   cId: string;
   accountNum: number;
-  ispasswordError: Boolean = true;
-  errorMsgPassword: String = "";
-  isEmailError = true;
-  errorMsgEmail = "";
-  iscontactError = true;
-  contactErrorMsg = "";
-  minDate:string;
+
+  ispasswordError = false;
+  errorMsgPassword = '';
+  isEmailError = false;
+  errorMsgEmail = '';
+  iscontactError = false;
+  contactErrorMsg = '';
+  minDate: string;
+  isDobError: boolean;
+  dobErrorMsg = '';
+  isUsernameError: boolean;
+  usernameErrorMsg = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: LoginService) {
 
-    var now = new Date();
+    const now = new Date();
     this.minDate = now.toISOString().substring(0, 10);
    }
 
@@ -36,6 +42,8 @@ export class UpdateCustomerComponent implements OnInit {
     console.log(this.cId);
     this.customer = this.dataService.getCustomerById(this.cId);
     console.log('Inside ngOnInit of home ts customerId: ' + this.customer);
+    this.isDobError = false;
+    this.isUsernameError = false;
   }
 
   updateCustomer(): void {
@@ -45,8 +53,37 @@ export class UpdateCustomerComponent implements OnInit {
     this.router.navigate(['/home', this.cId]);
   }
 
+  checkUsername(event): void {
+    if (event.target.value === '') {
+      console.log('Username is Empty');
+      this.isUsernameError = true;
+      this.usernameErrorMsg = 'Username is a required field';
+    }else {
+      this.isUsernameError = false;
+      this.usernameErrorMsg = '';
+    }
+  }
+
+  areAllFieldsInserted(): Boolean {
+    let check = false;
+    if (this.customer.username && this.customer.password && this.customer.name
+      && this.customer.address && this.customer.email && this.customer.gender
+      && this.customer.maritalStatus && this.customer.contactNumber
+      && this.customer.accountType && this.customer.dateOfBirth){
+        check = true;
+      }
+    return check;
+  }
+
   onSubmit(): void {
-   this.updateCustomer();
+    // this.updateCustomer();
+    console.log(this.areAllFieldsInserted());
+    console.log(this.iscontactError, this.isEmailError, this.ispasswordError, this.isDobError);
+    if (this.areAllFieldsInserted() && !this.iscontactError && !this.isEmailError && !this.ispasswordError && !this.isDobError) {
+       this.updateCustomer();
+    }else {
+      alert('please fill all valid and mandetory fields');
+    }
   }
 
   onCancel(): void {
@@ -58,16 +95,15 @@ export class UpdateCustomerComponent implements OnInit {
   }
 
   onChangename(event) {
-    console.log('Inside onChangename.....');
-    console.log(event);
-    if (checkAlphabet(event))
+    if (checkAlphabet(event)) {
       event.preventDefault();
+    }
   }
 
   onChangepassword(event) {
     if (!checkPassword(event)) {
       this.ispasswordError = true;
-      this.errorMsgPassword = "Password should have at least one special character ,one number, one capital letter and should be of more than 8 digits";
+      this.errorMsgPassword = 'Password should have at least one special character ,one number, one capital letter and should be of more than 8 digits';
     } else {
       this.ispasswordError = false;
       this.errorMsgPassword = '';
@@ -80,7 +116,15 @@ export class UpdateCustomerComponent implements OnInit {
       this.errorMsgEmail = '';
     } else {
       this.isEmailError = true;
-      this.errorMsgEmail = "Email should have @ and . sign";
+      this.errorMsgEmail = 'Email should have @ and . sign';
+    }
+  }
+
+  checkDob(event) {
+    if (event.target.value === '') {
+      console.log('DOB is Empty');
+      this.isDobError = true;
+      this.dobErrorMsg = 'Date of birth is a required field';
     }
   }
 

@@ -42,11 +42,21 @@ export class RegisterCustomerComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  areAllFieldsInserted(): Boolean {
+    let check =false;
+    if(this.customer.username && this.customer.password && this.customer.name 
+      && this.customer.address && this.customer.email && this.customer.gender
+      && this.customer.maritalStatus && this.customer.contactNumber 
+      && this.customer.accountType && this.customer.dateOfBirth){
+        check=true;
+      }
+      return check;
+  }
+
   onSubmit(): void {
-
+    console.log(this.areAllFieldsInserted());
     console.log(this.iscontactError, this.isEmailError, this.ispasswordError)
-    if (!this.iscontactError && !this.isEmailError && !this.ispasswordError) {
-
+    if (this.areAllFieldsInserted() && !this.iscontactError && !this.isEmailError && !this.ispasswordError) {
       this.cId = 'R-' + Math.floor(100 + Math.random() * 999);
       this.accountNum = Math.floor(Math.random() * (9 * Math.pow(10, 16 - 1))) + Math.pow(10, 16 - 1);
       this.customer.customerId = this.cId;
@@ -55,14 +65,17 @@ export class RegisterCustomerComponent implements OnInit {
       console.log('register component accountNumber:' + this.accountNum);
       this.showalert(this.customer.customerId);
       this.registerCustomer();
+    }else {
+      alert('please fill all valid and mandetory fields');
     }
+
   }
 
   onCancel(): void {
     this.router.navigate(['login']);
-  } 
+  }
 
-  showalert(message: string) {
+  showalert(message: string): void  {
     alert('Registered successfully,customer id:' + message);
   }
 
