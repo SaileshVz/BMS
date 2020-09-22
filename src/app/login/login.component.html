@@ -1,5 +1,10 @@
 <div class="container">  
     <form (ngSubmit) = "onSubmit()">
+       <div class="col-md-12 bg-lightblue text-right">                
+          <input type="image" src='../../assets/fb.jpg' width="25px" height="25px" (click) = 'onLoginUsingFB()'>&nbsp;
+          <input type="image" src='../../assets/google.JPG' width="25px" height="25px" (click) = 'onLoginUsingFB()'>&nbsp;
+          <input type="image" src='../../assets/twitter.jpg' width="25px" height="25px" (click) = 'onLoginUsingFB()'>&nbsp;
+        </div>
         <div class="row">            
             <div class = "col-md-12">
               <label for=name>Username:</label>&nbsp;
@@ -12,7 +17,8 @@
               <input type="password" name="pwd" required [(ngModel)] = "customer.password" >
             </div>
         </div>
-        <button type="submit" class = 'btn-info' >Login</button> &nbsp;&nbsp;
-        <button type='button' (click) = 'onRegisterCustomer()'  class='btn-info'>Register</button>        
+        
+        <button type="submit" class = 'btn-info' >Login</button> &nbsp;&nbsp;        
+        <button type='button' (click) = 'onRegisterCustomer()'  class='btn-info'>Register</button>
     </form>  
 </div>

@@ -2,20 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
-
+import { SocialAuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+import { Router } from '@angular/router';
+import { Loan } from './loan';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  private baseUrl = 'http://localhost:8080/serverApi'
+  private baseUrl = 'http://localhost:8080/serverApi';
   initialDeposit: number;
   accountHolderName: string;
+  user: SocialUser;
+  loggedIn: string;
+  cust: Customer;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private authService: SocialAuthService, private router: Router) {
   }
 
+  loans: Loan[];
   customers: Customer[] = [
     {
       customerId: 'R-100',
@@ -44,7 +50,7 @@ export class LoginService {
       contactNumber: '1111111111',
       dateOfBirth: new Date(Date.now()),
       accountNumber: 1234567899876543,
-      accountType: "Salary",
+      accountType: 'salary',
       initialDepositAmount: 600.25
     },
     {
@@ -57,14 +63,14 @@ export class LoginService {
       gender: 'male',
       maritalStatus: 'married',
       contactNumber: '1111111111',
-      dateOfBirth: new Date(Date.now()),
+      dateOfBirth: null,
       accountNumber: 1111222233334444,
       accountType: 'salary',
       initialDepositAmount: 50000.25
     }
   ];
 
-
+  // "2012-07-12T00:00:00.000Z"  JSON Date Format
 
   validateLogin(customer: Customer): Customer {
     // in real time there will be separate service call to the given service URL
@@ -74,13 +80,11 @@ export class LoginService {
     }
     return null;
   }
-  getInitialDeposit()
-  {
+  getInitialDeposit(): any {
     return this.initialDeposit;
   }
 
-  getAccountHolderName()
-  {
+  getAccountHolderName(): string {
     return this.accountHolderName;
   }
 
@@ -88,8 +92,8 @@ export class LoginService {
     console.log('Inside getCustomerById: ' + id);
     console.log('Customer: ' + this.customers[0].customerId);
     // tslint:disable-next-line:prefer-const
-    for (let cust  of this.customers) {
-      if (id == cust.customerId) {
+    for (let cust of this.customers) {
+      if (id === cust.customerId) {
         console.log('Inside username : ' + cust.username);
         return cust;
       }
@@ -99,5 +103,49 @@ export class LoginService {
 
   getCustomerCount(): number {
     return this.customers.length;
+  }
+
+  signInWithFB(): any {
+    // this.isInitialized().subscribe(e=>console.log(e));
+    this.authService.initialized = true;
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = 'Y';
+      console.log(this.user);
+      this.router.navigate(['home', 'R-200']);
+      // hard coded the below part since it is bank management system and user Social UserId does not exist on the system.
+    }, error => {
+      console.log('Error occured');
+    }).add(() => {
+      // Do some work after complete...
+      this.router.navigate(['home', 'R-200']);
+    });
+    // if(this.loggedIn='Y')
+    // {
+    //   //Hard Coded the userId
+    //   this.router.navigate(['home', 'R-200']);
+
+    // }
+  }
+
+  signOut(): void {
+    this.authService.signOut();
+  }
+  getLoggedIn(): string {
+    return this.loggedIn;
+  }
+
+  isInitialized(): Observable<boolean> {
+    return new Observable((observer) => {
+      if (this.authService.initialized) {
+        observer.next(this.authService.initialized);
+        observer.complete();
+        observer.unsubscribe();
+      } else {
+        observer.next(this.authService.initialized);
+      }
+    });
   }
 }

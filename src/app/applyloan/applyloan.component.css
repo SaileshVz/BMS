@@ -1,3 +1,14 @@
 .cdk-overlay-container{
     z-index: 2000;
   }
+
+.apply_loan{
+    width: 200px;
+    height:25px
+  }
+
+  label {
+    width: 40px;
+    height: 22px;    
+    font-size: medium;
+  }

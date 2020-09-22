@@ -125,6 +125,9 @@ export class UpdateCustomerComponent implements OnInit {
       console.log('DOB is Empty');
       this.isDobError = true;
       this.dobErrorMsg = 'Date of birth is a required field';
+    }else {
+      this.isDobError = false;
+      this.dobErrorMsg = '';
     }
   }
 
