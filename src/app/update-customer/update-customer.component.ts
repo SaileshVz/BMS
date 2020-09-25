@@ -64,7 +64,7 @@ export class UpdateCustomerComponent implements OnInit {
     }
   }
 
-  areAllFieldsInserted(): Boolean {
+  areAllFieldsInserted(): boolean {
     let check = false;
     if (this.customer.username && this.customer.password && this.customer.name
       && this.customer.address && this.customer.email && this.customer.gender
@@ -90,17 +90,17 @@ export class UpdateCustomerComponent implements OnInit {
     this.router.navigate(['/home', this.cId]);
   }
 
-  showalert(message: string) {
+  showalert(message: string): void {
     alert(this.customer.name + message);
   }
 
-  onChangename(event) {
+  onChangename(event): void {
     if (checkAlphabet(event)) {
       event.preventDefault();
     }
   }
 
-  onChangepassword(event) {
+  onChangepassword(event): void {
     if (!checkPassword(event)) {
       this.ispasswordError = true;
       this.errorMsgPassword = 'Password should have at least one special character ,one number, one capital letter and should be of more than 8 digits';
@@ -110,7 +110,7 @@ export class UpdateCustomerComponent implements OnInit {
     }
   }
 
-  checkEmail(event) {
+  checkEmail(event): void {
     if (event.target.value.includes('@') && event.target.value.includes('.')) {
       this.isEmailError = false;
       this.errorMsgEmail = '';
@@ -120,7 +120,7 @@ export class UpdateCustomerComponent implements OnInit {
     }
   }
 
-  checkDob(event) {
+  checkDob(event): void {
     if (event.target.value === '') {
       console.log('DOB is Empty');
       this.isDobError = true;
@@ -131,7 +131,7 @@ export class UpdateCustomerComponent implements OnInit {
     }
   }
 
-  checkLength(event) {
+  checkLength(event): void {
     if (event.target.value.length === 10) {
       this.iscontactError = false;
       this.contactErrorMsg = '';

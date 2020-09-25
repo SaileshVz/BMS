@@ -22,17 +22,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const retCustomer = this.loginService.validateLogin(this.customer);
-    // .subscribe(data => console.log(data), error => console.log(error));
+    if (this.customer.username && this.customer.password) {
+      const retCustomer = this.loginService.validateLogin(this.customer);
 
-    if (retCustomer != null) {
-      console.log(name + ' ' + retCustomer.name);
-      console.log('customer id:' + '' + retCustomer.customerId);
-      this.router.navigate(['home', retCustomer.customerId]);
-    } else {
-      // Error message invalid user.
-      //console.log(' Invalid user ');
-      alert('Invalid credential');
+      if (retCustomer != null) {
+        console.log(name + ' ' + retCustomer.name);
+        console.log('customer id:' + '' + retCustomer.customerId);
+        this.router.navigate(['home', retCustomer.customerId]);
+      } else {
+        alert('Invalid credential');
+      }
     }
     return;
   }
@@ -46,12 +45,18 @@ export class LoginComponent implements OnInit {
     this.loginService.signInWithFB();
   }
 
-  async getData() {
+  onLoginUsingGoogle(): void {
+    console.log('Google Login initiated');
+    this.loginService.signInWithGoogle();
+  }
+
+  /*
+  async getData(str: string): Promise<any> {
     await this.loginService.signInWithFB().toPromise().then(data => {
       this.user = data;
     });
     console.log('Feteched data: ' + this.user);
   }
-
+*/
 
 }

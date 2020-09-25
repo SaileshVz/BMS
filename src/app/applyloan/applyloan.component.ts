@@ -42,7 +42,7 @@ export class ApplyloanComponent implements OnInit {
   constructor(private loanService: ApplyLoanService,
               private loginService: LoginService,
               private route: ActivatedRoute,
-              private router: Router ) {
+              private router: Router) {
 
     const now = new Date();
     this.minDate = now.toISOString().substring(0, 10);
@@ -78,7 +78,27 @@ export class ApplyloanComponent implements OnInit {
     const formValue = { ...this.form.value };
     for (const prop in formValue) {
       if (!formValue[prop]) {
-        delete formValue[prop];
+        // delete formValue[prop];
+        if (formValue.loanType === '' || formValue.loanAmount === '' || formValue.loanDuration === '' || formValue.issueDate === '') {
+          window.alert('please fill all valid and mandetory fields');
+          return;
+        }
+        else {
+          if (formValue.loanType === 'personal' || formValue.loanType === 'housing') {
+            if (formValue.annualIncome === '' || formValue.companyName === '') {
+              window.alert('please fill all valid and mandetory fields');
+              return;
+            }
+          }
+          else {
+            if (formValue.loanType === 'educational') {
+              if (formValue.courseFee === '' || formValue.courseName === '' || formValue.fatherName === '') {
+                window.alert('please fill all valid and mandetory fields');
+                return;
+              }
+            }
+          }
+        }
       }
     }
     console.log(formValue);
@@ -97,8 +117,8 @@ export class ApplyloanComponent implements OnInit {
 
   generateAlert(): void {
     alert('Your ' +
-    this.form.controls.loanType.value +
-    ' loan request successfuly sent for verification,transaction id:' +
-     'BMS' + Math.random().toString(36).substr(2, 9));
+      this.form.controls.loanType.value +
+      ' loan request successfuly sent for verification,transaction id:' +
+      'BMS' + Math.random().toString(36).substr(2, 9));
   }
 }

@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   onLogout(): void {
+    if (this.dataService.getLoggedIn() === 'Y'){
+      this.dataService.signOut();
+    }
     this.router.navigate(['']);
   }
 

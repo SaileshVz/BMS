@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApplyloanComponent } from './applyloan/applyloan.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import {  MatFormFieldModule} from '@angular/material/form-field';
- //import {MatInputModule} from '@angular/material/input';
+// import {  MatFormFieldModule} from '@angular/material/form-field';
+ // import {MatInputModule} from '@angular/material/input';
 
- import {MatInputModule} from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -48,7 +48,8 @@ import {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule,
+    MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule,
+    MatCheckboxModule, MatDatepickerModule, MatRadioModule, MatSelectModule,
     MatNativeDateModule,
     HttpClientModule,
     SocialLoginModule
@@ -66,7 +67,7 @@ import {
         },
         {
           id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('333455787896802'),
+          provider: new FacebookLoginProvider('clientId'),
         },
         {
           id: AmazonLoginProvider.PROVIDER_ID,

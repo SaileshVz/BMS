@@ -106,28 +106,35 @@ export class LoginService {
   }
 
   signInWithFB(): any {
-    // this.isInitialized().subscribe(e=>console.log(e));
     this.authService.initialized = true;
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = 'Y';
       console.log(this.user);
-      this.router.navigate(['home', 'R-200']);
-      // hard coded the below part since it is bank management system and user Social UserId does not exist on the system.
+      this.authService.signOut();
+      this.router.navigate(['home', 'R-300']);
     }, error => {
       console.log('Error occured');
     }).add(() => {
-      // Do some work after complete...
-      this.router.navigate(['home', 'R-200']);
+      this.authService.signOut();
+      this.router.navigate(['home', 'R-300']);
     });
-    // if(this.loggedIn='Y')
-    // {
-    //   //Hard Coded the userId
-    //   this.router.navigate(['home', 'R-200']);
+  }
 
-    // }
+  signInWithGoogle(): any {
+    this.authService.initialized = true;
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = 'Y';
+      console.log(this.user);
+      this.router.navigate(['home', 'R-300']);
+    }, error => {
+      console.log('Error occured');
+    }).add(() => {
+      this.router.navigate(['home', 'R-300']);
+    });
   }
 
   signOut(): void {
