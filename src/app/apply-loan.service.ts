@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplyLoanService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getInterestRates()
+  getInterestRates(): Observable<object>
   {
-   return this.http.get("../assets/interestrate.json");
-    
+   return this.http.get('../assets/interestrate.json');
   }
 }
