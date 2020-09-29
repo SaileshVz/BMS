@@ -76,4 +76,10 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Login Button check', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Login');
+  });
 });

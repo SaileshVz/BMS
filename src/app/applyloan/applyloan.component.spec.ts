@@ -81,4 +81,16 @@ describe('ApplyloanComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Submit Button check', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Submit');
+  });
+
+  it('Loan Type label check', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('label').textContent).toContain('Loan Type:');
+  });
 });

@@ -88,4 +88,11 @@ describe('ViewCustomerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Return Button check', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('button').textContent).toContain('Return');
+  });
+
 });
